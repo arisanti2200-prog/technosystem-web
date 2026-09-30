@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 332 326">
+  <title>Isotipo JA</title>
+  <rect width="332" height="326" fill="#fff"/>
+  <g fill="none" stroke="#000" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M139 88H239C253 88 259 100 259 114V247C259 261 251 269 238 269H213M205 269H112C98 269 86 257 86 243V222M86 193V115C86 101 98 88 112 88H139"/>
+    <path d="M132 88V66M176 88V66M220 88V66M86 135H62M86 179H62M86 223H62M259 135H282M259 179H282M259 223H282M132 269V292M176 269V292M220 269V292"/>
+  </g>
+  <g fill="#fff" stroke="#000" stroke-width="12">
+    <circle cx="132" cy="51" r="13"/><circle cx="176" cy="51" r="13"/><circle cx="220" cy="51" r="13"/>
+    <circle cx="48" cy="135" r="13"/><circle cx="48" cy="179" r="13"/><circle cx="48" cy="223" r="13"/>
+    <circle cx="304" cy="135" r="13"/><circle cx="304" cy="179" r="13"/><circle cx="304" cy="223" r="13"/>
+    <circle cx="132" cy="308" r="13"/><circle cx="176" cy="308" r="13"/><circle cx="220" cy="308" r="13"/>
+  </g>
+  <path fill="#000" d="M123 126h30v68c0 17-3 30-11 40-8 10-19 15-33 15-14 0-25-4-34-12-8-8-13-18-14-30l25-3c2 15 10 23 23 23 8 0 13-3 16-8 3-6 4-14 4-25v-68zm35 105 33-105h26l34 105h-27l-8-27h-30l-8 27zm42-51h19l-10-33z"/>
+  <path d="M173 205c27-2 58-15 78-39" fill="none" stroke="#000" stroke-width="14" stroke-linecap="round"/>
+</svg>

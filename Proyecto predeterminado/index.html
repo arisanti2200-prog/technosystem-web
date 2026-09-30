@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============ SEO (edita con los datos reales del negocio) ============ -->
+  <title>TechnoSystem | Mantenimiento y Soporte Técnico de Computadores</title>
+  <meta name="description" content="Mantenimiento preventivo, limpieza interna, optimización de Windows, formateo, diagnóstico e instalación de programas. Soporte técnico profesional a domicilio y remoto.">
+  <meta name="theme-color" content="#05070d">
+  <meta property="og:title" content="TechnoSystem | Mantenimiento y Soporte Técnico de Computadores">
+  <meta property="og:description" content="Devolvemos la vida a tu computador: mantenimiento, optimización, diagnóstico y soporte técnico con garantía.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon inline (sin peticiones extra = carga más rápida) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0f1a'/%3E%3Cpath d='M9 11a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-5l-4 3v-3H11a2 2 0 0 1-2-2z' fill='none' stroke='%2322d3ee' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+  <!-- Fuentes (preconnect + display=swap para carga rápida) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       SPRITE DE ICONOS (SVG inline: cero peticiones externas)
+       ============================================================ -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-wind" viewBox="0 0 24 24"><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/><path d="M17.7 7.7A2.5 2.5 0 1 1 19.5 12H2"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+    <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></symbol>
+    <symbol id="i-drive" viewBox="0 0 24 24"><path d="M22 12H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><path d="M6 16h.01M10 16h.01"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 0 0-8.1 14.5L2.5 21.5l4.6-1.35A9.5 9.5 0 1 0 12 2.5z"/><path d="M8.6 7.7c.2-.4.5-.4.8-.4h.7c.2 0 .5 0 .7.5l.8 1.9c.1.3 0 .5-.2.7l-.6.6c-.2.2-.2.4-.1.6.5 1 1.4 1.9 2.4 2.4.2.1.4.1.6-.1l.6-.6c.2-.2.4-.3.7-.2l1.9.8c.4.2.5.4.5.7v.7c0 .3 0 .6-.4.8-.5.3-1.1.4-1.7.3-1.5-.3-3.6-1.4-5.2-3s-2.7-3.7-3-5.2c-.1-.6 0-1.2.3-1.7z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22 6 12 13 2 6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></symbol>
+  </svg>
+
+  <!-- ============================================================
+       BARRA DE NAVEGACIÓN
+       ============================================================ -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#inicio" class="brand" aria-label="TechnoSystem - Inicio">
+        <img class="brand-logo" src="assets/isotipo-ja.svg" alt="Logo JA">
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#precios" class="nav-link">Precios</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+        <a href="#nosotros" class="nav-link">Sobre nosotros</a>
+        <a href="#faq" class="nav-link">Preguntas frecuentes</a>
+        <a href="#contacto" class="btn btn-primary btn-sm nav-cta">Solicitar servicio</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <svg class="icon icon-open"><use href="#i-menu"/></svg>
+        <svg class="icon icon-close"><use href="#i-close"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO / PÁGINA DE INICIO
+         ============================================================ -->
+    <section class="hero" id="inicio">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="orb orb-1"></span>
+        <span class="orb orb-2"></span>
+        <span class="grid-overlay"></span>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-content reveal">
+          <span class="badge">
+            <span class="badge-dot"></span>
+            Soporte técnico a domicilio y remoto
+          </span>
+
+          <h1>
+            Mantenimiento y soporte técnico para tu
+            <span class="gradient-text">computador</span>
+          </h1>
+
+          <p class="lead">
+            Diagnosticamos, limpiamos, optimizamos y reparamos equipos con procesos
+            profesionales y garantía por escrito. Devolvemos velocidad, estabilidad
+            y seguridad a tu computador sin complicaciones.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contacto" class="btn btn-primary">
+              Solicitar servicio
+              <svg class="icon"><use href="#i-arrow"/></svg>
+            </a>
+            <a href="https://wa.me/573122698232?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20mantenimiento" class="btn btn-whatsapp" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#i-whatsapp"/></svg>
+              Escribir por WhatsApp
+            </a>
+          </div>
+
+          <ul class="hero-points">
+            <li><svg class="icon"><use href="#i-check"/></svg> Garantía por escrito</li>
+            <li><svg class="icon"><use href="#i-check"/></svg> Diagnóstico sin costo</li>
+            <li><svg class="icon"><use href="#i-check"/></svg> Respuesta en 24 horas</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual reveal" data-delay="150">
+          <div class="panel panel-checklist">
+            <div class="panel-head">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="panel-title">Checklist de servicio</span>
+            </div>
+            <ul class="checklist">
+              <li><svg class="icon ok"><use href="#i-check"/></svg><div><strong>Revisión preventiva</strong><span>Estado general del equipo y componentes</span></div></li>
+              <li><svg class="icon ok"><use href="#i-check"/></svg><div><strong>Limpieza interna</strong><span>Polvo, ventiladores y disipadores</span></div></li>
+              <li><svg class="icon ok"><use href="#i-check"/></svg><div><strong>Optimización de sistema</strong><span>Arranque, memoria y procesos en segundo plano</span></div></li>
+              <li><svg class="icon ok"><use href="#i-check"/></svg><div><strong>Drivers actualizados</strong><span>Componentes con fabricantes oficiales</span></div></li>
+              <li><svg class="icon ok"><use href="#i-check"/></svg><div><strong>Informe final</strong><span>Resultados y recomendaciones del técnico</span></div></li>
+            </ul>
+            <div class="panel-foot">
+              <span class="pulse"></span> Proceso verificado paso a paso
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICIOS
+         ============================================================ -->
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Nuestros servicios</span>
+          <h2>Soluciones completas para tu <span class="gradient-text">computador</span></h2>
+          <p>
+            Trabajamos con protocolos definidos para cada tipo de intervención.
+            Cada servicio incluye revisión previa, ejecución controlada y
+            verificación final antes de la entrega del equipo.
+          </p>
+        </div>
+
+        <div class="grid cards-grid">
+          <!-- 1 -->
+          <article class="card reveal">
+            <div class="card-icon"><svg class="icon"><use href="#i-shield"/></svg></div>
+            <h3>Mantenimiento preventivo</h3>
+            <p>Revisión programada de hardware y software para detectar desgaste, sobrecalentamiento o fallas antes de que se conviertan en un problema mayor.</p>
+            <ul class="card-list">
+              <li>Revisión de temperatura y ventilación</li>
+              <li>Verificación de disco y memoria</li>
+              <li>Informe de estado del equipo</li>
+            </ul>
+          </article>
+
+          <!-- 2 -->
+          <article class="card reveal" data-delay="60">
+            <div class="card-icon"><svg class="icon"><use href="#i-wind"/></svg></div>
+            <h3>Limpieza interna del computador</h3>
+            <p>Retiro físico de polvo y suciedad acumulada en componentes críticos, mejorando la disipación de calor y prolongando la vida útil del equipo.</p>
+            <ul class="card-list">
+              <li>Ventiladores y disipadores</li>
+              <li>Revisión de conexiones y contactos</li>
+              <li>Aplicación de pasta térmica cuando se requiere</li>
+            </ul>
+          </article>
+
+          <!-- 3 -->
+          <article class="card reveal" data-delay="120">
+            <div class="card-icon"><svg class="icon"><use href="#i-zap"/></svg></div>
+            <h3>Optimización y aceleración de Windows</h3>
+            <p>Ajustes especializados para reducir tiempos de arranque, liberar recursos y lograr un equipo fluido en el uso diario y en programas exigentes.</p>
+            <ul class="card-list">
+              <li>Gestión de programas de inicio</li>
+              <li>Liberación de memoria y espacio en disco</li>
+              <li>Ajustes de rendimiento del sistema</li>
+            </ul>
+          </article>
+
+          <!-- 4 -->
+          <article class="card reveal" data-delay="180">
+            <div class="card-icon"><svg class="icon"><use href="#i-cpu"/></svg></div>
+            <h3>Instalación y actualización de drivers</h3>
+            <p>Instalamos controladores oficiales de tarjeta gráfica, sonido, red y periféricos para evitar conflictos, errores y fallos de reconocimiento de hardware.</p>
+            <ul class="card-list">
+              <li>Drivers desde fabricantes oficiales</li>
+              <li>Resolución de conflictos de dispositivos</li>
+              <li>Verificación posterior a la instalación</li>
+            </ul>
+          </article>
+
+          <!-- 5 -->
+          <article class="card reveal">
+            <div class="card-icon"><svg class="icon"><use href="#i-drive"/></svg></div>
+            <h3>Formateo e instalación de Windows</h3>
+            <p>Instalación limpia del sistema operativo con particiones organizadas, actualizaciones completas y configuración inicial lista para trabajar.</p>
+            <ul class="card-list">
+              <li>Respaldo previo de información (con consentimiento)</li>
+              <li>Windows activado y actualizado</li>
+              <li>Configuración básica y de seguridad</li>
+            </ul>
+          </article>
+
+          <!-- 6 -->
+          <article class="card reveal" data-delay="60">
+            <div class="card-icon"><svg class="icon"><use href="#i-trash"/></svg></div>
+            <h3>Eliminación de archivos basura</h3>
+            <p>Removemos archivos temporales, cachés, restos de programas desinstalados y aplicaciones innecesarias que ocupan espacio y ralentizan el equipo.</p>
+            <ul class="card-list">
+              <li>Archivos temporales y caché del sistema</li>
+              <li>Programas innecesarios y bloatware</li>
+              <li>Recuperación de espacio en disco</li>
+            </ul>
+          </article>
+
+          <!-- 7 -->
+          <article class="card reveal" data-delay="120">
+            <div class="card-icon"><svg class="icon"><use href="#i-search"/></svg></div>
+            <h3>Diagnóstico de hardware y software</h3>
+            <p>Identificamos la causa real de fallas: pantallas azules, lentitud, ruidos, sobrecalentamiento, errores de arranque o comportamientos inusuales.</p>
+            <ul class="card-list">
+              <li>Pruebas de disco, memoria y batería</li>
+              <li>Detección de errores de sistema</li>
+              <li>Presupuesto claro antes de reparar</li>
+            </ul>
+          </article>
+
+          <!-- 8 -->
+          <article class="card reveal" data-delay="180">
+            <div class="card-icon"><svg class="icon"><use href="#i-download"/></svg></div>
+            <h3>Instalación de programas</h3>
+            <p>Instalamos y configuramos el software que necesitas: ofimática, diseño, desarrollo, seguridad y utilidades, siempre desde fuentes confiables.</p>
+            <ul class="card-list">
+              <li>Software de oficina y productividad</li>
+              <li>Antivirus y herramientas de seguridad</li>
+              <li>Configuración y licenciamiento</li>
+            </ul>
+          </article>
+
+          <!-- 9 -->
+          <article class="card reveal">
+            <div class="card-icon"><svg class="icon"><use href="#i-star"/></svg></div>
+            <h3>Instalación de juegos y videojuegos</h3>
+            <p>Instalamos y actualizamos tus juegos en las principales plataformas, con los controladores gráficos al día y el equipo listo para jugar sin cuellos de botella.</p>
+            <ul class="card-list">
+              <li>Steam, Epic Games, Xbox, Rockstar y más</li>
+              <li>Drivers de tarjeta gráfica y rendimiento</li>
+              <li>Espacio en disco, cuentas y prueba de ejecución</li>
+            </ul>
+          </article>
+
+          <!-- 10 -->
+          <article class="card reveal" data-delay="60">
+            <div class="card-icon"><svg class="icon"><use href="#i-wrench"/></svg></div>
+            <h3>Configuración de equipo nuevo</h3>
+            <p>Dejamos listo tu computador recién comprado o ensamblado: instalamos Windows, los controladores y los programas esenciales para que lo uses desde el primer día.</p>
+            <ul class="card-list">
+              <li>Instalación de Windows y actualizaciones</li>
+              <li>Controladores, navegador y software de oficina</li>
+              <li>Cuentas, copias de seguridad y ajustes iniciales</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PRECIOS / PLANES
+         ============================================================ -->
+    <section class="section section-alt" id="precios">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Planes y precios</span>
+          <h2>Mantenimiento con <span class="gradient-text">valores claros</span></h2>
+          <p>
+            Elige el plan según el nivel de cuidado que necesita tu equipo.
+            Todos incluyen diagnóstico inicial, prueba de funcionamiento y
+            entrega con informe de lo realizado.
+          </p>
+        </div>
+
+        <!-- EDITA: nombres, precios y contenidos de cada plan -->
+        <div class="grid plans-grid">
+          <article class="plan reveal">
+            <div class="plan-head">
+              <h3>Plan Esencial</h3>
+              <p class="plan-desc">Mantenimiento básico para equipos de uso diario.</p>
+              <div class="plan-price"><span class="currency">$</span>25.000<span class="period">COP / servicio</span></div>
+            </div>
+            <ul class="plan-features">
+              <li><svg class="icon"><use href="#i-check"/></svg> Diagnóstico general del equipo</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Limpieza de archivos temporales</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Optimización de arranque y rendimiento</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Revisión de drivers esenciales</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Informe final de estado</li>
+            </ul>
+            <a href="#contacto" class="btn btn-ghost btn-block">Solicitar plan</a>
+          </article>
+
+          <article class="plan plan-featured reveal" data-delay="80">
+            <span class="plan-tag">Más solicitado</span>
+            <div class="plan-head">
+              <h3>Plan Pro</h3>
+              <p class="plan-desc">Limpieza profunda y optimización completa.</p>
+              <div class="plan-price"><span class="currency">$</span>40.000<span class="period">COP / servicio</span></div>
+            </div>
+            <ul class="plan-features">
+              <li><svg class="icon"><use href="#i-check"/></svg> Todo lo incluido en Plan Esencial</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Limpieza interna completa</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Eliminación de programas innecesarios</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Verificación de disco y memoria</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Revisión de seguridad y actualizaciones</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Garantía sobre el servicio realizado</li>
+            </ul>
+            <a href="#contacto" class="btn btn-primary btn-block">Solicitar plan</a>
+          </article>
+
+          <article class="plan reveal" data-delay="160">
+            <div class="plan-head">
+              <h3>Plan Premium</h3>
+              <p class="plan-desc">Renovación total y soporte extendido.</p>
+              <div class="plan-price"><span class="currency">$</span>70.000<span class="period">COP / servicio</span></div>
+            </div>
+            <ul class="plan-features">
+              <li><svg class="icon"><use href="#i-check"/></svg> Todo lo incluido en Plan Pro</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Formateo e instalación de Windows</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Instalación de programas solicitados</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Respaldo de información previo</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Soporte prioritario por 30 días</li>
+            </ul>
+            <a href="#contacto" class="btn btn-ghost btn-block">Solicitar plan</a>
+          </article>
+        </div>
+
+        <!-- EDITA: precios de servicios sueltos (fuera de los planes) -->
+        <div class="price-list reveal">
+          <div class="price-list-head">
+            <h3>Precio por servicio individual</h3>
+            <p>
+              ¿Solo necesitas una cosa? Estos son los valores sueltos en
+              <strong>pesos colombianos (COP)</strong>, sin incluir los planes.
+            </p>
+          </div>
+          <ul class="price-list-rows">
+            <li class="price-row">
+              <span class="price-row-name">Diagnóstico general del equipo</span>
+              <span class="price-row-lead" aria-hidden="true"></span>
+              <span class="price-row-value free">Sin costo</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row-name">Instalación de Windows desde cero</span>
+              <span class="price-row-lead" aria-hidden="true"></span>
+              <span class="price-row-value"><b>$</b>40.000</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row-name">Instalación de juegos y videojuegos</span>
+              <span class="price-row-lead" aria-hidden="true"></span>
+              <span class="price-row-value"><b>$</b>25.000</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row-name">Configuración de equipo nuevo (con Windows)</span>
+              <span class="price-row-lead" aria-hidden="true"></span>
+              <span class="price-row-value"><b>$</b>50.000</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row-name">Limpieza interna del computador</span>
+              <span class="price-row-lead" aria-hidden="true"></span>
+              <span class="price-row-value"><b>$</b>30.000</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row-name">Instalación de programas (Office, navegador, utilidades)</span>
+              <span class="price-row-lead" aria-hidden="true"></span>
+              <span class="price-row-value"><b>$</b>15.000</span>
+            </li>
+            <li class="price-row">
+              <span class="price-row-name">Optimización y eliminación de archivos basura</span>
+              <span class="price-row-lead" aria-hidden="true"></span>
+              <span class="price-row-value"><b>$</b>20.000</span>
+            </li>
+          </ul>
+        </div>
+
+        <p class="plans-note reveal">
+          <svg class="icon"><use href="#i-clock"/></svg>
+          Los precios están en <strong>pesos colombianos (COP)</strong> y son referenciales:
+          pueden variar según el estado del equipo,
+          el modelo y los repuestos requeribles. Solicita una cotización sin compromiso.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACTO / FORMULARIO DE SOLICITUD
+         ============================================================ -->
+    <section class="section" id="contacto">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Solicitar servicio</span>
+          <h2>Cuéntanos qué necesita <span class="gradient-text">tu equipo</span></h2>
+          <p>Completa el formulario y te contactamos para agendar el diagnóstico sin compromiso.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Datos de contacto (edita con la información real) -->
+          <div class="contact-info reveal">
+            <a class="info-card" href="https://wa.me/573122698232?text=Hola%2C%20quiero%20solicitar%20un%20servicio%20de%20mantenimiento" target="_blank" rel="noopener">
+              <div class="info-icon"><svg class="icon"><use href="#i-whatsapp"/></svg></div>
+              <div>
+                <strong>WhatsApp</strong>
+                <span>+57 312 2698232</span>
+              </div>
+            </a>
+            <a class="info-card" href="tel:+573122698232" aria-label="Llamar ahora al +57 312 2698232">
+              <div class="info-icon"><svg class="icon"><use href="#i-phone"/></svg></div>
+              <div>
+                <strong>Teléfono (llamadas)</strong>
+                <span>+57 312 2698232</span>
+              </div>
+            </a>
+            <div class="info-card">
+              <div class="info-icon"><svg class="icon"><use href="#i-clock"/></svg></div>
+              <div>
+                <strong>Horario de atención</strong>
+                <span>Lunes a sábado, 8:00 a.m. – 6:00 p.m.</span>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-icon"><svg class="icon"><use href="#i-pin"/></svg></div>
+              <div>
+                <strong>Cobertura</strong>
+                <span>Atención a domicilio y soporte remoto</span>
+              </div>
+            </div>
+
+            <a class="info-card info-card-quejas" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=arisantigo2024@gmail.com&amp;su=Queja%20o%20reclamo%20-%20TechnoSystem&amp;body=Hola%2C%0A%0AQuiero%20presentar%20una%20queja%20o%20reclamo.%0A%0ADatos%20del%20servicio%3A%0A-%20Fecha%3A%0A-%20Servicio%3A%0A-%20Motivo%3A%0A%0AGracias." target="_blank" rel="noopener">
+              <div class="info-icon"><svg class="icon"><use href="#i-shield"/></svg></div>
+              <div>
+                <strong>Quejas y reclamos</strong>
+                <span>arisantigo2024@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="https://wa.me/573122698232?text=Hola%2C%20quiero%20solicitar%20un%20servicio%20de%20mantenimiento" class="btn btn-whatsapp btn-block" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#i-whatsapp"/></svg>
+              Atención inmediata por WhatsApp
+            </a>
+          </div>
+
+          <!-- Formulario: preparado para conectar con un backend -->
+          <form class="contact-form reveal" id="serviceForm" data-delay="120" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required autocomplete="name">
+                <small class="error" data-for="nombre"></small>
+              </div>
+              <div class="field">
+                <label for="medioContacto">Teléfono o correo *</label>
+                <input type="text" id="medioContacto" name="contacto" placeholder="Cómo podemos contactarte" required autocomplete="tel">
+                <small class="error" data-for="contacto"></small>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="servicio">Servicio solicitado *</label>
+                <select id="servicio" name="servicio" required>
+                  <option value="">Selecciona una opción</option>
+                  <option>Mantenimiento preventivo</option>
+                  <option>Limpieza interna del computador</option>
+                  <option>Optimización y aceleración de Windows</option>
+                  <option>Instalación y actualización de drivers</option>
+                  <option>Formateo e instalación de Windows</option>
+                  <option>Eliminación de archivos basura</option>
+                  <option>Diagnóstico de hardware y software</option>
+                  <option>Instalación de programas</option>
+                  <option>Instalación de juegos y videojuegos</option>
+                  <option>Configuración de equipo nuevo (con Windows)</option>
+                  <option>Plan Esencial / Pro / Premium</option>
+                  <option>Otro / no estoy seguro</option>
+                </select>
+                <small class="error" data-for="servicio"></small>
+              </div>
+              <div class="field">
+                <label for="equipo">Tipo de equipo</label>
+                <select id="equipo" name="equipo">
+                  <option value="">Selecciona una opción</option>
+                  <option>Portátil</option>
+                  <option>Escritorio</option>
+                  <option>No estoy seguro</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="mensaje">Describe el problema o lo que necesitas *</label>
+              <textarea id="mensaje" name="mensaje" rows="5" placeholder="Ej: Mi computador tarda mucho en encender y se calienta..." required></textarea>
+              <small class="error" data-for="mensaje"></small>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="formSubmit">
+              Enviar solicitud
+              <svg class="icon"><use href="#i-arrow"/></svg>
+            </button>
+
+            <p class="form-note">
+              Al enviar serás redirigido a WhatsApp con tu solicitud lista para confirmar.
+              Tus datos se usan únicamente para responderte.
+            </p>
+
+            <!-- Área de estado accesible (aria-live) -->
+            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SOBRE NOSOTROS
+         ============================================================ -->
+    <section class="section section-alt" id="nosotros">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <span class="eyebrow">Sobre nosotros</span>
+            <h2>Técnicos especializados, trato <span class="gradient-text">humano</span></h2>
+            <p>
+              Somos un equipo de técnicos especializados en mantenimiento y soporte
+              de computadores. Nacimos con una idea simple: que cada persona pueda
+              trabajar, estudiar y crear sin interrupciones causadas por equipos
+              lentos o con fallas evitables.
+            </p>
+            <p>
+              Trabajamos con procesos definidos, herramientas profesionales y
+              transparencia total: antes de tocar tu equipo te explicamos qué tiene,
+              qué se va a hacer y cuánto cuesta. Sin sorpresas y sin intervenciones
+              que no hayas autorizado.
+            </p>
+
+            <div class="values-grid">
+              <div class="value">
+                <div class="value-icon"><svg class="icon"><use href="#i-award"/></svg></div>
+                <div><strong>Garantía real</strong><span>Respaldamos el trabajo realizado</span></div>
+              </div>
+              <div class="value">
+                <div class="value-icon"><svg class="icon"><use href="#i-lock"/></svg></div>
+                <div><strong>Confidencialidad</strong><span>Tu información se trata con cuidado</span></div>
+              </div>
+              <div class="value">
+                <div class="value-icon"><svg class="icon"><use href="#i-refresh"/></svg></div>
+                <div><strong>Seguimiento</strong><span>Verificamos el equipo tras la entrega</span></div>
+              </div>
+              <div class="value">
+                <div class="value-icon"><svg class="icon"><use href="#i-users"/></svg></div>
+                <div><strong>Atención cercana</strong><span>Te acompañamos en todo el proceso</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-process reveal" data-delay="150">
+            <h3 class="process-title">Cómo trabajamos</h3>
+            <ol class="steps">
+              <li class="step">
+                <span class="step-num">01</span>
+                <div>
+                  <strong>Contacto y diagnóstico</strong>
+                  <p>Recibimos tu solicitud, evaluamos el equipo e identificamos la causa del problema.</p>
+                </div>
+              </li>
+              <li class="step">
+                <span class="step-num">02</span>
+                <div>
+                  <strong>Presupuesto aprobado</strong>
+                  <p>Te explicamos el trabajo necesario y su costo. Solo avanzamos con tu autorización.</p>
+                </div>
+              </li>
+              <li class="step">
+                <span class="step-num">03</span>
+                <div>
+                  <strong>Ejecución del servicio</strong>
+                  <p>Aplicamos el mantenimiento o reparación siguiendo el protocolo correspondiente.</p>
+                </div>
+              </li>
+              <li class="step">
+                <span class="step-num">04</span>
+                <div>
+                  <strong>Prueba y entrega</strong>
+                  <p>Verificamos el funcionamiento, entregamos el equipo y te damos recomendaciones.</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PREGUNTAS FRECUENTES
+         ============================================================ -->
+    <section class="section" id="faq">
+      <div class="container container-narrow">
+        <div class="section-head reveal">
+          <span class="eyebrow">Preguntas frecuentes</span>
+          <h2>Resolvemos tus <span class="gradient-text">dudas</span></h2>
+          <p>Lo que suelen preguntarnos antes de solicitar un servicio.</p>
+        </div>
+
+        <div class="faq-list reveal">
+          <details class="faq-item">
+            <summary>
+              ¿Con cuánta rapidez atienden un servicio?
+              <svg class="icon chev"><use href="#i-chevron"/></svg>
+            </summary>
+            <div class="faq-body">
+              <p>Respondemos las solicitudes en un máximo de 24 horas hábiles. La mayoría de los mantenimientos preventivos se ejecutan el mismo día o al día siguiente de recibir el equipo, según la agenda y la complejidad del caso.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Se puede atender a domicilio o es solo remoto?
+              <svg class="icon chev"><use href="#i-chevron"/></svg>
+            </summary>
+            <div class="faq-body">
+              <p>Ambas modalidades. Los problemas de software, instalación y optimización pueden resolverse en forma remota, mientras que la limpieza interna, el diagnóstico de hardware y el formateo requieren la revisión física del equipo.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Pierdo mis archivos al formatear el computador?
+              <svg class="icon chev"><use href="#i-chevron"/></svg>
+            </summary>
+            <div class="faq-body">
+              <p>Solo si no se hace un respaldo previo. Antes de cualquier formateo identificamos la información importante y, con tu autorización, la respaldamos en un medio externo. Nunca eliminamos datos sin tu consentimiento explícito.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Con qué frecuencia debo hacer mantenimiento preventivo?
+              <svg class="icon chev"><use href="#i-chevron"/></svg>
+            </summary>
+            <div class="faq-body">
+              <p>Recomendamos una revisión cada 6 a 12 meses para equipos de uso diario, y cada 3 a 6 meses en equipos de trabajo intensivo, con mucha polvo en el ambiente o que operan varias horas seguidas.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Los servicios tienen garantía?
+              <svg class="icon chev"><use href="#i-chevron"/></svg>
+            </summary>
+            <div class="faq-body">
+              <p>Sí. Cada servicio se entrega con garantía por escrito sobre el trabajo realizado y durante el plazo indicado en el comprobante de servicio. Si el mismo problema reaparece dentro de ese período, lo atendemos sin costo adicional.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Trabajan con cualquier marca y modelo de computador?
+              <svg class="icon chev"><use href="#i-chevron"/></svg>
+            </summary>
+            <div class="faq-body">
+              <p>Atendemos equipos de escritorio y portátiles de las principales marcas, con Windows como sistema principal. Si tienes un equipo con configuración especial, cuéntanoslo en la solicitud y te confirmamos la viabilidad.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Cómo sé qué necesita mi equipo si no sé nada de técnicas?
+              <svg class="icon chev"><use href="#i-chevron"/></svg>
+            </summary>
+            <div class="faq-body">
+              <p>No necesitas saberlo. Solo descríbenos los síntomas: lentitud, ruidos, apagones, errores o pantallas azules. El diagnóstico lo hacemos nosotros y te explicamos el resultado en términos simples antes de ejecutar cualquier trabajo.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Cómo puedo pagar el servicio?
+              <svg class="icon chev"><use href="#i-chevron"/></svg>
+            </summary>
+            <div class="faq-body">
+              <p>Aceptamos los medios de pago habituales de la zona (efectivo, transferencia y tarjetas, según disponibilidad). El costo se define siempre antes de iniciar el trabajo y se confirma en el comprobante de entrega.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              ¿Instalan Windows y juegos en mi computador?
+              <svg class="icon chev"><use href="#i-chevron"/></svg>
+            </summary>
+            <div class="faq-body">
+              <p>Sí. Instalamos o dejamos Windows desde cero con sus actualizaciones, controladores y programas esenciales (con respaldo previo de tu información si lo deseas), e instalamos tus juegos en Steam, Epic Games, Xbox y otras plataformas, con la tarjeta gráfica actualizada y el equipo probado antes de la entrega.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         RESEÑAS DE CLIENTES
+         Se envían y se muestran DENTRO de la aplicación (localStorage),
+         limitadas a una reseña por persona (validada por el campo
+         "contacto"). Cada quien puede eliminar su propia reseña desde el
+         panel (el botón "Eliminar" solo aparece en el navegador donde se
+         publicó). Opcionalmente se conecta a un backend con
+         CONFIG.reviewsEndpoint (GET) / reviewsPostEndpoint (POST).
+         ============================================================ -->
+    <section class="section section-alt" id="resenas">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Reseñas</span>
+          <h2>Tu opinión <span class="gradient-text">nos importa</span></h2>
+          <p>
+            ¿Ya recibiste un servicio? Califícanos y cuéntanos cómo fue tu
+            experiencia: se publica al instante en esta página y cada persona
+            puede dejar <strong>una sola reseña</strong>.
+          </p>
+        </div>
+
+        <div class="resenas-grid">
+          <!-- Formulario de reseña -->
+          <form class="contact-form reveal" id="reviewForm" novalidate>
+            <div class="field">
+              <label for="nombreResena">Tu nombre *</label>
+              <input type="text" id="nombreResena" name="nombre" placeholder="Ej: María López" required autocomplete="name">
+              <small class="error" data-for="nombre"></small>
+            </div>
+
+            <div class="field">
+              <label for="contactoResena">Correo o WhatsApp *</label>
+              <input type="text" id="contactoResena" name="contacto" placeholder="Ej: 300 123 4567 o correo@ejemplo.com" required autocomplete="email">
+              <small class="error" data-for="contacto"></small>
+            </div>
+
+            <div class="field">
+              <label id="ratingLabel">Puntuación *</label>
+              <div class="stars" role="radiogroup" aria-labelledby="ratingLabel">
+                <input type="radio" name="puntuacion" id="star1" value="1"><label for="star1" title="1 estrella">★</label>
+                <input type="radio" name="puntuacion" id="star2" value="2"><label for="star2" title="2 estrellas">★</label>
+                <input type="radio" name="puntuacion" id="star3" value="3"><label for="star3" title="3 estrellas">★</label>
+                <input type="radio" name="puntuacion" id="star4" value="4"><label for="star4" title="4 estrellas">★</label>
+                <input type="radio" name="puntuacion" id="star5" value="5"><label for="star5" title="5 estrellas">★</label>
+              </div>
+              <small class="error" data-for="puntuacion"></small>
+            </div>
+
+            <div class="field">
+              <label for="comentarioResena">Tu reseña *</label>
+              <textarea id="comentarioResena" name="comentario" rows="4" placeholder="Describe el servicio recibido, la atención y el resultado..." required></textarea>
+              <small class="error" data-for="comentario"></small>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              Publicar mi reseña
+              <svg class="icon"><use href="#i-arrow"/></svg>
+            </button>
+
+            <p class="form-note">
+              Tu reseña se publica al instante en esta página.
+              Solo se permite <strong>una reseña por persona</strong>.
+            </p>
+            <div class="form-status" id="reviewStatus" role="status" aria-live="polite"></div>
+          </form>
+
+          <!-- Publicaciones (preparado para backend) -->
+          <div class="resenas-panel reveal" data-delay="120">
+            <div class="resenas-panel-head">
+              <h3>Reseñas publicadas</h3>
+              <span class="rating-prom" id="resenasCount">0 reseñas</span>
+            </div>
+            <div class="resenas-list" id="listaResenas">
+              <!--
+                PUNTO DE CONEXIÓN CON EL BACKEND (opcional):
+                - Sin backend: las reseñas se guardan en el navegador del
+                  visitante (localStorage) y se limitan a una por persona.
+                - Con CONFIG.reviewsEndpoint (GET): se muestran las reseñas
+                  publicadas desde el servidor para todos los visitantes.
+                Cada reseña es un bloque:
+                <article class="review-item">
+                  <div class="review-head">
+                    <span class="review-author">Nombre</span>
+                    <span class="review-stars">★★★★★</span>
+                  </div>
+                  <p class="review-text">Comentario del cliente...</p>
+                </article>
+              -->
+              <p class="resenas-empty">
+                Todavía no hay reseñas publicadas. ¡Sé el primero en contar tu
+                experiencia con TechnoSystem!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" class="brand">
+          <img class="brand-logo" src="assets/isotipo-ja.svg" alt="Logo JA">
+        </a>
+        <p>
+          Mantenimiento preventivo, reparación y soporte técnico de computadores
+          con procesos profesionales, transparencia y garantía.
+        </p>
+        <div class="socials">
+          <a href="https://www.instagram.com/itstechnosystem_jm/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg class="icon"><use href="#i-instagram"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Servicios</h3>
+        <ul>
+          <li><a href="#servicios">Mantenimiento preventivo</a></li>
+          <li><a href="#servicios">Limpieza interna</a></li>
+          <li><a href="#servicios">Optimización de Windows</a></li>
+          <li><a href="#servicios">Formateo e instalación</a></li>
+          <li><a href="#servicios">Diagnóstico de fallas</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Empresa</h3>
+        <ul>
+          <li><a href="#nosotros">Sobre nosotros</a></li>
+          <li><a href="#precios">Planes y precios</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="#resenas">Reseñas de clientes</a></li>
+          <li><a href="#contacto">Solicitar servicio</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contacto</h3>
+        <ul class="footer-contact">
+          <li><svg class="icon"><use href="#i-phone"/></svg> <a href="tel:+573122698232" aria-label="Llamar ahora al +57 312 2698232">+57 312 2698232</a></li>
+          <li><svg class="icon"><use href="#i-shield"/></svg> <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=arisantigo2024@gmail.com&amp;su=Queja%20o%20reclamo%20-%20TechnoSystem&amp;body=Hola%2C%0A%0AQuiero%20presentar%20una%20queja%20o%20reclamo.%0A%0ADatos%20del%20servicio%3A%0A-%20Fecha%3A%0A-%20Servicio%3A%0A-%20Motivo%3A%0A%0AGracias." target="_blank" rel="noopener">arisantigo2024@gmail.com</a></li>
+          <li><svg class="icon"><use href="#i-pin"/></svg> Atención a domicilio y remota</li>
+          <li><svg class="icon"><use href="#i-clock"/></svg> Lun a Sáb · 8:00 a.m. – 6:00 p.m.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span>© <span id="year">2026</span> TechnoSystem. Todos los derechos reservados.</span>
+        <nav class="footer-legal" aria-label="Enlaces legales">
+          <a href="politicas.html#privacidad">Política de privacidad</a>
+          <a href="politicas.html#cookies">Política de cookies</a>
+          <a href="politicas.html#terminos">Términos y condiciones</a>
+          <a href="politicas.html#reclamos">Libro de quejas y reclamos</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/573122698232?text=Hola%2C%20necesito%20soporte%20t%C3%A9cnico" class="fab-whatsapp" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg class="icon"><use href="#i-whatsapp"/></svg>
+    <span class="fab-label">WhatsApp</span>
+  </a>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
